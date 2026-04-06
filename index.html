@@ -78,9 +78,12 @@
             border: 1px solid #e9ecef;
             margin-bottom: 4rem;
         }
+        /* 优化后的UCVC logo样式，解决压缩变形 */
         .partner-badge img {
-            width: 40px;
             height: 40px;
+            width: auto;
+            max-width: 200px;
+            object-fit: contain;
             margin-right: 1rem;
         }
         .partner-badge span {
@@ -253,6 +256,10 @@
             .section-title {
                 font-size: 2rem;
             }
+            /* 移动端logo适配 */
+            .partner-badge img {
+                height: 30px;
+            }
         }
     </style>
     <!-- 引入谷歌字体 -->
@@ -278,9 +285,9 @@
         <section class="hero" id="homeSection">
             <h1>Empower Bold Startups, Connect Global Innovation</h1>
             <p>Chicago Global Ventures (CGVC) is a startup-focused venture capital firm rooted in Chicago, bridging campus innovation and global markets with deep collaboration with the University of Chicago Venture Club (UCVC).</p>
-            <!-- 替换后的UCVC徽标 -->
+            <!-- 替换为你的UCVC芝大创投logo -->
             <div class="partner-badge">
-                <img src="ucvc_white.png" alt="UCVC Logo" width="40" height="40">
+                <img src="ucvc_white.png" alt="UChicago Venture Club 芝大创投" />
                 <span>Deep Strategic Partnership with <a href="https://uchicago.edu/venture-club" target="_blank">UChicago Venture Club (UCVC)</a></span>
             </div>
             <!-- 订阅板块 -->
