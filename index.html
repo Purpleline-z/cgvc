@@ -52,9 +52,10 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 8rem 0;
+            padding: 4rem 0;
             max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
         }
         .hero h1 {
             font-size: 4rem;
@@ -128,6 +129,69 @@
         .subscribe-form button:hover {
             background-color: #333;
         }
+
+        /* Contact 成员页面样式 */
+        .contact-section {
+            display: none;
+            width: 100%;
+        }
+        .contact-section.active {
+            display: block;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #111;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+        .team-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid #e9ecef;
+            transition: transform 0.3s;
+        }
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #0066cc;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        .team-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #111;
+        }
+        .team-card .email {
+            color: #0066cc;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+        }
+        .team-card .bio {
+            color: #555;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
         /* 页脚 */
         footer {
             padding: 3rem 0;
@@ -186,6 +250,9 @@
             .footer-links a {
                 margin-left: 0;
             }
+            .section-title {
+                font-size: 2rem;
+            }
         }
     </style>
     <!-- 引入谷歌字体 -->
@@ -196,26 +263,26 @@
 <body>
     <!-- 导航栏 -->
     <header>
-        <a href="https://chicagoglobalventures.com/" class="logo">CG<span>VC</span></a>
+        <a href="javascript:showHome()" class="logo">CG<span>VC</span></a>
         <div class="nav-links">
-            <a href="#about">About</a>
+            <a href="javascript:showHome()">About</a>
             <a href="#partnership">Partnership</a>
             <a href="#insights">Insights</a>
-            <a href="#contact">Contact</a>
+            <a href="javascript:showContact()">Contact</a>
         </div>
     </header>
 
     <!-- 核心内容 -->
     <main>
-        <section class="hero">
+        <!-- 首页内容 -->
+        <section class="hero" id="homeSection">
             <h1>Empower Bold Startups, Connect Global Innovation</h1>
             <p>Chicago Global Ventures (CGVC) is a startup-focused venture capital firm rooted in Chicago, bridging campus innovation and global markets with deep collaboration with the University of Chicago Venture Club (UCVC).</p>
-            <!-- 合作徽章板块 -->
+            <!-- 替换后的UCVC徽标 -->
             <div class="partner-badge">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><!-- 芝加哥大学风格简约徽章图标 -->
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#0066cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M2 17L12 22L22 17" stroke="#0066cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M2 12L12 17L22 12" stroke="#0066cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+                    <circle cx="12" cy="12" r="10" stroke="#0066cc" stroke-width="2"/>
+                    <path d="M9 12h6M12 9v6" stroke="#0066cc" stroke-width="2" stroke-linecap="round"/>
                 </svg>
                 <span>Deep Strategic Partnership with <a href="https://uchicago.edu/venture-club" target="_blank">UChicago Venture Club (UCVC)</a></span>
             </div>
@@ -226,6 +293,52 @@
                     <input type="email" placeholder="Your email address" required>
                     <button type="submit">Subscribe</button>
                 </form>
+            </div>
+        </section>
+
+        <!-- Contact 成员页面 -->
+        <section class="contact-section" id="contactSection">
+            <h2 class="section-title">Our Team</h2>
+            <div class="team-grid">
+                <!-- 成员1：你 -->
+                <div class="team-card">
+                    <div class="avatar">P</div>
+                    <h3>Purpleline Zhang</h3>
+                    <a href="mailto:purpleline@cgvc.com" class="email">purpleline@cgvc.com</a>
+                    <p class="bio">Core member of UCVC & CGVC, focusing on global startup incubation and venture capital strategy.</p>
+                </div>
+
+                <!-- 成员2 -->
+                <div class="team-card">
+                    <div class="avatar">J</div>
+                    <h3>James Wilson</h3>
+                    <a href="mailto:james@cgvc.com" class="email">james@cgvc.com</a>
+                    <p class="bio">UChicago MBA, VC investment expert with 8+ years experience in tech startups.</p>
+                </div>
+
+                <!-- 成员3 -->
+                <div class="team-card">
+                    <div class="avatar">L</div>
+                    <h3>Lisa Chen</h3>
+                    <a href="mailto:lisa@cgvc.com" class="email">lisa@cgvc.com</a>
+                    <p class="bio">Cross-border innovation specialist, connecting Chicago startups with Asian markets.</p>
+                </div>
+
+                <!-- 成员4 -->
+                <div class="team-card">
+                    <div class="avatar">M</div>
+                    <h3>Michael Brown</h3>
+                    <a href="mailto:michael@cgvc.com" class="email">michael@cgvc.com</a>
+                    <p class="bio">University of Chicago Venture Club President, startup ecosystem builder.</p>
+                </div>
+
+                <!-- 成员5 -->
+                <div class="team-card">
+                    <div class="avatar">S</div>
+                    <h3>Sophia Lee</h3>
+                    <a href="mailto:sophia@cgvc.com" class="email">sophia@cgvc.com</a>
+                    <p class="bio">Early-stage investment analyst, passionate about deep tech and SaaS startups.</p>
+                </div>
             </div>
         </section>
     </main>
@@ -240,5 +353,19 @@
             <a href="/sitemap">Sitemap</a>
         </div>
     </footer>
+
+    <!-- 页面切换JS -->
+    <script>
+        // 显示首页
+        function showHome() {
+            document.getElementById('homeSection').style.display = 'block';
+            document.getElementById('contactSection').classList.remove('active');
+        }
+        // 显示Contact成员页
+        function showContact() {
+            document.getElementById('homeSection').style.display = 'none';
+            document.getElementById('contactSection').classList.add('active');
+        }
+    </script>
 </body>
 </html>
